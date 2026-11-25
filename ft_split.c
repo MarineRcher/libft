@@ -6,12 +6,11 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 16:12:14 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/18 15:20:53 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/25 18:09:20 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stddef.h>
 
 static unsigned int	ft_count_words(char const *s, char c)
 {
@@ -47,11 +46,15 @@ static unsigned int	ft_len_word(char const *s, size_t i, char c)
 	return (len_word);
 }
 
-static char	*ft_fill_strs(const char *s, size_t *i, char c, char *str)
+static char	*ft_fill_strs(const char *s, size_t *i, char c)
 {
 	size_t	j;
+	char	*str;
 
 	j = 0;
+	str = malloc((ft_len_word(s, *i, c) + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
 	while (s[*i] && s[*i] != c)
 	{
 		str[j] = s[*i];
@@ -62,7 +65,7 @@ static char	*ft_fill_strs(const char *s, size_t *i, char c, char *str)
 	return (str);
 }
 
-static void	ft_free_strs(char **strs)
+static char	**ft_free_strs(char **strs)
 {
 	size_t	i;
 
@@ -73,6 +76,7 @@ static void	ft_free_strs(char **strs)
 		i++;
 	}
 	free(strs);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -83,7 +87,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	strs = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (strs == NULL)
@@ -92,13 +96,9 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[i] != c)
 		{
-			strs[j] = malloc((ft_len_word(s, i, c) + 1) * sizeof(char));
+			strs[j] = ft_fill_strs(s, &i, c);
 			if (!strs[j])
-			{
-				ft_free_strs(strs);
-				return (NULL);
-			}
-			strs[j] = ft_fill_strs(s, &i, c, strs[j]);
+				return (ft_free_strs(strs));
 			j++;
 		}
 		else
@@ -107,24 +107,3 @@ char	**ft_split(char const *s, char c)
 	strs[j] = NULL;
 	return (strs);
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char	**str;
-// 	int		i = 0;
-// 	str = ft_split(NULL, ' ');
-// 	if (str == NULL)
-// 		return (0);
-// 	while (i <= 4)
-// 	{
-// 		printf("%s\n", str[i]);
-// 		i++;
-// 	}
-// 	i = 0;
-// 	while (i <= 4)
-// 	{
-// 		free(str[i]);
-// 		i++;
-// 	}
-// 	free(str);
-// }

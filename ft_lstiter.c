@@ -6,7 +6,7 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 15:00:57 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/18 14:55:55 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/25 13:44:12 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*temp;
-
-	temp = lst;
-	while (temp->next)
+	while (lst)
 	{
-		f(temp->content);
-		temp = temp->next;
+		f(lst->content);
+		lst = lst->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 16:44:15 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/18 14:58:30 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/24 15:03:20 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (((unsigned char *)s1)[i] == ((unsigned char *)s2)[i] && i < n)
+	while (((unsigned char *)s1)[i] == ((unsigned char *)s2)[i]
+			&& i < (n - 1))
 		i++;
 	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }

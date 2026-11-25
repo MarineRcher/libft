@@ -6,12 +6,11 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 11:58:16 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/18 15:02:16 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/25 17:49:19 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stddef.h>
 
 static size_t	ft_nb_len(long n)
 {

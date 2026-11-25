@@ -6,7 +6,7 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 16:48:55 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/17 16:41:59 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/25 13:20:26 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	i = 0;
-	c = malloc(ft_strlen((char *)s) * sizeof(char));
+	c = malloc((ft_strlen((char *)s) + 1) * sizeof(char));
 	if (c == NULL)
 		return (NULL);
 	while (s[i])

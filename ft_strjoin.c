@@ -6,7 +6,7 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 13:15:12 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/18 15:34:51 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/25 13:48:39 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	str = malloc((ft_strlen((char *)s1)
-				+ ft_strlen((char *)s2)) * sizeof(char));
+				+ ft_strlen((char *)s2) + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	while (s1[i])
