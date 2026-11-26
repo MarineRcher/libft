@@ -6,7 +6,7 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 16:12:14 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/25 18:09:20 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/26 12:24:38 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ static char	*ft_fill_strs(const char *s, size_t *i, char c)
 	return (str);
 }
 
-static char	**ft_free_strs(char **strs)
+static char	**ft_free_strs(char **strs, size_t len_filled)
 {
 	size_t	i;
 
 	i = 0;
-	while (strs[i])
+	while (i <= len_filled)
 	{
 		free(strs[i]);
 		i++;
@@ -98,7 +98,7 @@ char	**ft_split(char const *s, char c)
 		{
 			strs[j] = ft_fill_strs(s, &i, c);
 			if (!strs[j])
-				return (ft_free_strs(strs));
+				return (ft_free_strs(strs, j));
 			j++;
 		}
 		else

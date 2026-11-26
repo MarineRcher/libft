@@ -44,12 +44,6 @@ Then compile your program and link it against the library:
 cc -Wall -Wextra -Werror main.c -L. -lft -o my_program
 ```
 
-(Use `-I<path>` if `libft.h` is in another directory.)
-
-### Testing against the system functions
-
-On glibc systems, `strlcpy`, `strlcat` and `bzero` may require `<bsd/string.h>` and the `-lbsd` flag to be compared with the originals.
-
 ## Library description
 
 All functions are declared in `libft.h`. The library is divided into three parts.
@@ -65,8 +59,6 @@ Reimplementations of standard functions, with the same behavior as in the man pa
 | Strings                                      | `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_atoi` |
 | Memory                                       | `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`                              |
 | Allocation (use `malloc`)                    | `ft_calloc`, `ft_strdup`                                                                                  |
-
-Note: `ft_calloc` returns a unique pointer that can be passed to `free()` when `nmemb` or `size` is `0`.
 
 ### Part 2 – Additional functions
 
@@ -126,12 +118,5 @@ typedef struct s_list
 
 - `man 3` pages of the reimplemented functions (`strlen`, `memmove`, `strlcpy`, `calloc`, etc.)
 - The 42 Norm (official 42 documentation)
-- _The C Programming Language_, B. Kernighan & D. Ritchie
 - `man ar` – GNU archiver
 - GNU Make documentation: https://www.gnu.org/software/make/manual/
-
-### Use of AI
-
-<!-- To be filled in honestly by the author(s): state for which tasks and which parts of the project AI was used (e.g. "AI was used to draft this README" / "to understand the difference between memcpy and memmove"), or that it was not used for the code. -->
-
-AI was used for: _<describe the tasks and the parts of the project concerned>_.

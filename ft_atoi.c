@@ -6,14 +6,16 @@
 /*   By: marriche <marriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 15:45:58 by marriche          #+#    #+#             */
-/*   Updated: 2026/11/25 18:06:41 by marriche         ###   ########.fr       */
+/*   Updated: 2026/11/26 14:07:21 by marriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+
 int	ft_atoi(const char *nptr)
 {
-	int	n;
-	int	sign;
+	size_t	n;
+	int		sign;
 
 	sign = 1;
 	n = 0;
@@ -31,5 +33,5 @@ int	ft_atoi(const char *nptr)
 		n = (n * 10) + (*nptr - '0');
 		nptr++;
 	}
-	return (sign * n);
+	return (sign * (int)n);
 }
